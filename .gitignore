@@ -1,0 +1,13 @@
+# STM32CubeIDE generated build output
+Firmware/fft_analyzer/Debug/
+
+# Python generated files
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# IDE and operating system files
+.vscode/
+.DS_Store
+Thumbs.db
