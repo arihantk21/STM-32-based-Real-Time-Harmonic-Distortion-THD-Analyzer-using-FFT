@@ -1,128 +1,85 @@
-\# STM32-Based Real-Time Harmonic Distortion (THD) Analyzer Using FFT
+# STM32-Based Real-Time Harmonic Distortion (THD) Analyzer Using FFT
 
+A real-time signal analysis project using an STM32 microcontroller to acquire signal samples, perform frequency-domain analysis, and visualize the spectrum on a PC using Python.
 
+## Overview
 
-A microcontroller-based project for analyzing signal harmonics and Total Harmonic Distortion (THD) using an STM32 microcontroller and Fast Fourier Transform (FFT).
+This project is designed around the **STM32F411CEU6** microcontroller, based on the **ARM Cortex-M4F** core. It combines embedded firmware with a Python-based visualization script to support signal analysis and harmonic distortion measurement.
 
+The firmware project is developed using **STM32CubeIDE**, while **USB Communication Device Class (USB CDC)** is used for communication between the microcontroller and the computer.
 
+## Hardware and Software
 
-\## Project Overview
+| Component | Technology |
+|---|---|
+| Microcontroller | STM32F411CEU6 |
+| Processor core | ARM Cortex-M4F |
+| Firmware development | STM32CubeIDE |
+| Firmware language | C |
+| Signal processing | Fast Fourier Transform (FFT) |
+| PC visualization | Python |
+| Communication interface | USB CDC |
 
-
-
-This project uses an STM32F411CEU6 microcontroller to acquire signal samples, process them for frequency-domain analysis, and communicate measurement data to a PC for visualization.
-
-
-
-\## Hardware and Software
-
-
-
-\- \*\*Microcontroller:\*\* STM32F411CEU6 (ARM Cortex-M4F)
-
-\- \*\*Firmware IDE:\*\* STM32CubeIDE
-
-\- \*\*Programming language:\*\* C
-
-\- \*\*PC visualization:\*\* Python
-
-\- \*\*Communication:\*\* USB CDC
-
-\- \*\*Signal processing:\*\* Fast Fourier Transform (FFT)
-
-
-
-\## Repository Structure
-
-
+## Repository Structure
 
 ```text
-
-THD\_Analyzer\_GitHub/
-
+STM-32-based-Real-Time-Harmonic-Distortion-THD-Analyzer-using-FFT/
 ├── Firmware/
-
-│   └── fft\_analyzer/
-
+│   └── fft_analyzer/
+│       ├── Core/
+│       ├── Drivers/
+│       ├── Middlewares/
+│       ├── USB_DEVICE/
+│       └── fft_analyzer.ioc
 ├── Python/
-
-│   └── spectrum\_plot.py
-
+│   └── spectrum_plot.py
 ├── Documentation/
-
+├── .gitignore
+├── LICENSE
 └── README.md
-
 ```
 
+*Note: The structure above highlights the main project components; additional configuration and source files are included in the repository.*
 
+## Key Components
 
-\## Features
+- **Embedded firmware:** STM32CubeIDE project for the STM32F411CEU6 microcontroller.
+- **Signal acquisition:** ADC-related firmware for acquiring input samples.
+- **Frequency analysis:** FFT-based signal processing.
+- **USB communication:** USB CDC interface for transferring data between the microcontroller and PC.
+- **Spectrum visualization:** Python script for displaying signal spectrum data.
 
+The exact implementation and operational status of individual features should be verified against the firmware source code and the Python script.
 
+## Getting Started
 
-\- ADC-based signal acquisition
+### 1. Firmware Setup
 
-\- FFT-based frequency analysis
+1. Install **STM32CubeIDE**.
+2. Clone or download this repository.
+3. Import the `Firmware/fft_analyzer` project into STM32CubeIDE.
+4. Check the target microcontroller, project configuration, and required dependencies.
+5. Build the firmware and program compatible STM32 hardware.
 
-\- USB CDC communication with a computer
+### 2. Python Setup
 
-\- Python-based spectrum visualization
+1. Install **Python 3**.
+2. Open the `Python` directory.
+3. Review `spectrum_plot.py` to identify its required Python packages and communication settings.
+4. Install the required dependencies.
+5. Connect the compatible hardware and configure the appropriate communication port.
+6. Run the script using Python.
 
+### 3. Hardware Considerations
 
+- Verify the signal input range and ADC input requirements before connecting an external signal.
+- Confirm the USB connection and communication settings.
+- Check the firmware's sampling configuration, FFT implementation, and THD calculation before relying on measurement results.
 
-Refer to the firmware source code for the implemented functionality and configuration.
+## Current Scope
 
+This repository contains the STM32 firmware project and the Python visualization script. Refer to the source code for implementation details and supported functionality.
 
+## License
 
-\## Getting Started
-
-
-
-\### Firmware
-
-
-
-1\. Install STM32CubeIDE.
-
-2\. Import the `Firmware/fft\_analyzer` project into the workspace.
-
-3\. Review the project configuration and target microcontroller.
-
-4\. Build the project and program the compatible STM32 hardware.
-
-
-
-\### Python Visualization
-
-
-
-1\. Install Python 3.
-
-2\. Install the Python packages required by `Python/spectrum\_plot.py`.
-
-3\. Connect the device and configure the appropriate communication port as required by the script.
-
-4\. Run the visualization script.
-
-
-
-\## Notes
-
-
-
-\- Hardware connections and signal input requirements must be checked before testing.
-
-\- ADC configuration, sampling parameters, FFT implementation, and THD calculation should be verified against the firmware source code.
-
-\- Generated build files are excluded from version control.
-
-
-
-\## License
-
-
-
-A license has not yet been specified.
-
-
-
+See the [`LICENSE`](LICENSE) file for the license terms applicable to this repository.
